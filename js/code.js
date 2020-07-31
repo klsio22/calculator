@@ -2,7 +2,7 @@ var resultado;
 resultado = document.getElementById('resultado')
 
 /* if (resultado.value === 'undefined') {
-    resultado.value = ''
+    resultado.value = ' '
 }
  */
 
