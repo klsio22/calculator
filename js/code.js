@@ -1,30 +1,42 @@
+var resultado;
+resultado = document.getElementById('resultado')
+
+/* if (resultado.value === 'undefined') {
+    resultado.value = ''
+}
+ */
+
 function calcular(tipo, valor) {
+
+
     if (tipo === 'acao') {
-        if (valor === 'c'){
+
+        if (valor === 'c') {
             //limpar o visor (id resultado)
-            document.getElementById('resultado').value = ''
-        } 
-        
-        if (valor === '+' || valor === '-' 
-        || valor == '*' || valor === '/' ){
-            document.getElementById('resultado').value += valor
+            resultado.value = ''
         }
-        
-        if (valor === '='){
-           var resultado = eval(document.getElementById('resultado').value)
-        
-           //console.log(eval(resultado))
 
-            document.getElementById('resultado').value = resultado
+        if (valor === '+' || valor === '-'
+            || valor == '*' || valor === '/' || valor === '.') {
+            resultado.value += valor
+        }
 
-        } else if (valor === undefined){
-            document.getElementById('resultado').value = ''
-        }   
-    
+        if (valor === '=') {
+            var valor_campo = resultado.value
+            resultado.value = ''
+            //console.log(eval(resultado))
+
+            if (resultado.value === 'undefined') {
+                resultado.value = ''
+                
+            } else {
+                resultado.value = eval(valor_campo)
+            }
+        }
+
 
     } else if (tipo === 'valor') {
-        document.getElementById('resultado').value += valor
+        resultado.value += valor
     }
-
 
 }
